@@ -1,0 +1,30 @@
+{
+  "name": "kran-tk",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Crane Monitor — статический демо-стенд мониторинга автокранов",
+  "scripts": {
+    "start": "npm run build && vite preview --port 4173 --strictPort --open",
+    "dev": "vite --open",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "build:standalone": "vite build --base ./ && node scripts/make-standalone.mjs",
+    "typecheck": "tsc -b --noEmit false --emitDeclarationOnly false",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  }
+}

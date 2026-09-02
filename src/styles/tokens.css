@@ -1,0 +1,79 @@
+/* Дизайн-токены. Значения взяты 1:1 из макета «Мониторинг крана v2.dc.html».
+   Единственный источник правды по цветам, радиусам и типографике. */
+:root {
+  /* --- поверхности --- */
+  --bg-app: #eef1f6;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --surface-field: #f4f6fa;
+  --surface-inset: #fbfcfe;
+  --surface-hover: #f8fbff;
+  --surface-selected: #f2f7fd;
+  --surface-neutral: #f1f5f9;
+  --surface-map: #e8eef4;
+
+  /* --- границы --- */
+  --border: #dfe5ee;
+  --border-soft: #eef2f7;
+  --border-hair: #f4f7fb;
+  --border-card: #e8edf4;
+  --border-divider: #e2e8f0;
+
+  /* --- текст --- */
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --ink-3: #475569;
+  --ink-4: #64748b;
+  --ink-muted: #94a3b8;
+  --ink-faint: #b6c1cf;
+
+  /* --- акцент --- */
+  --accent: #1668c8;
+  --accent-strong: #0f4e9c;
+
+  /* --- статусы --- */
+  --ok: #16a34a;
+  --ok-text: #15803d;
+  --ok-bg: #e7f7ed;
+  --ok-soft: #bbf7d0;
+  --ok-bar: #86e0a4;
+
+  --warn: #d97706;
+  --warn-text: #b45309;
+  --warn-bg: #fef3c7;
+  --warn-soft: #fde68a;
+  --warn-bar: #fbbf24;
+
+  --danger: #dc2626;
+  --danger-text: #b91c1c;
+  --danger-bg: #fee2e2;
+  --danger-soft: #fca5a5;
+  --danger-border: #f6b9b9;
+
+  --neutral: #94a3b8;
+  --neutral-bar: #cbd5e1;
+  --idle-bar: #e2e8f0;
+
+  /* --- навигация --- */
+  --nav-bg: #10243c;
+  --nav-fg: #8fa6c0;
+  --nav-fg-bright: #c9d8e8;
+  --nav-hover: #17324f;
+  --nav-brand: #2f4d70;
+  --nav-logo-border: #6f8aa8;
+
+  /* --- геометрия --- */
+  --r-xs: 5px;
+  --r-sm: 6px;
+  --r-md: 7px;
+  --r-lg: 8px;
+  --r-xl: 9px;
+  --nav-w: 92px;
+
+  /* --- типографика --- */
+  --font: Roboto, Arial, Helvetica, sans-serif;
+  --mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-pin: 0 2px 6px rgba(15, 23, 42, 0.12);
+  --shadow-modal: 0 24px 60px rgba(15, 23, 42, 0.22);
+}

@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Параллельные деплои не нужны: важен только последний.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Раньше сборки: если Pages не подключены, падаем сразу, а не после npm ci.
+      # Подключить их автоматически нельзя — создание сайта Pages требует прав
+      # администратора репозитория, которых у GITHUB_TOKEN нет. Включается один
+      # раз вручную: Settings → Pages → Source: GitHub Actions.
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Корневой сайт <owner>.github.io живёт в корне домена, проектный —
+      # в подкаталоге /<repo>/. Определяем сами, чтобы работало в обоих случаях.
+      - name: Определить базовый путь
+        id: base
+        run: |
+          name="${GITHUB_REPOSITORY##*/}"
+          if [[ "$name" == *.github.io ]]; then
+            echo "path=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/$name/" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Базовый путь: $(grep '^path=' "$GITHUB_OUTPUT" | cut -d= -f2-)"
+
+      - name: Build
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.base.outputs.path }}
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

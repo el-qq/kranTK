@@ -1,0 +1,9 @@
+# локальная выгрузка макетов из Claude Design, если она лежит рядом
+source/
+
+# артефакты сборки и зависимости
+dist/
+dist-standalone/
+node_modules/
+package-lock.json
+*.tsbuildinfo

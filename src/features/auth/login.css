@@ -1,0 +1,208 @@
+/* Экран входа: сплошной брендовый фон, карточка по центру. */
+.login {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  padding: 32px 20px 20px;
+  background: var(--nav-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Два мягких пятна, чтобы фон не был плоским */
+.login::before,
+.login::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.login::before {
+  top: -220px;
+  right: -180px;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(22, 104, 200, 0.38), transparent 62%);
+}
+.login::after {
+  bottom: -260px;
+  left: -200px;
+  width: 660px;
+  height: 660px;
+  background: radial-gradient(circle, rgba(22, 104, 200, 0.22), transparent 64%);
+}
+
+.login__inner {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.login__logo-mark {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border: 2px solid var(--nav-logo-border);
+  border-radius: var(--r-md);
+}
+.login__logo-text {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--nav-fg-bright);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.login__heading {
+  margin: 22px 0 0;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.login__lead {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--nav-fg);
+  max-width: 400px;
+}
+
+.login__form {
+  width: 100%;
+  margin-top: 26px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 26px 26px 22px;
+  text-align: left;
+  box-shadow: 0 26px 60px rgba(3, 12, 26, 0.45);
+}
+
+.login__title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.login__subtitle {
+  font-size: 13px;
+  color: var(--ink-4);
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
+
+.login__field {
+  display: block;
+  margin-bottom: 14px;
+}
+.login__field span {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-4);
+  margin-bottom: 6px;
+}
+.login__field input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-field);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+}
+.login__field input:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(22, 104, 200, 0.12);
+}
+
+.login__error {
+  min-height: 18px;
+  font-size: 12px;
+  color: var(--danger);
+  margin-bottom: 6px;
+}
+
+.login__submit {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 0;
+  border-radius: var(--r-md);
+}
+.login__submit:hover {
+  background: var(--accent-strong);
+}
+
+.login__note {
+  margin: 16px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* Короткий перечень возможностей под карточкой */
+.login__features {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  font-size: 12px;
+  color: var(--nav-fg);
+}
+.login__features li + li::before {
+  content: '·';
+  margin-right: 10px;
+  color: var(--nav-brand);
+}
+
+.login__footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 28px;
+  font-size: 11px;
+  color: var(--nav-brand);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .login {
+    padding: 24px 16px 16px;
+  }
+  .login__heading {
+    font-size: 23px;
+  }
+  .login__form {
+    padding: 22px 18px 18px;
+  }
+  /* На узком экране пункты переносились с «висячей» точкой-разделителем */
+  .login__features {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .login__features li + li::before {
+    display: none;
+  }
+}

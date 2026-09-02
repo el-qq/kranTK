@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+/* --- утилиты, повторяющиеся по всему макету --- */
+.mono {
+  font-family: var(--mono);
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+}
+.card-pad {
+  padding: 14px 16px;
+}
+.eyebrow {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.spacer {
+  flex: 1;
+}
+.link {
+  font-size: 12px;
+  color: var(--accent);
+  cursor: pointer;
+}
+.link:hover {
+  color: var(--accent-strong);
+}
+.chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: var(--r-xs);
+  white-space: nowrap;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 8px;
+}
+.bar-track {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--border-soft);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+}
+.grid-svg {
+  position: absolute;
+  inset: 0;
+}
+.hint {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.seg {
+  display: flex;
+  gap: 5px;
+}
+.seg button {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--r-xs);
+  background: var(--surface-field);
+  color: var(--ink-3);
+}
+.seg button:hover {
+  background: #e8eef7;
+}
+.seg button[data-on='true'] {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
+
+.ghost-btn {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 13px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  color: var(--ink-2);
+}
+.ghost-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.ghost-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ghost-btn:disabled:hover {
+  border-color: var(--border);
+  color: var(--ink-2);
+}
+.primary-btn {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--r-md);
+  background: var(--accent);
+  color: #fff;
+}
+.primary-btn:hover {
+  background: var(--accent-strong);
+}
